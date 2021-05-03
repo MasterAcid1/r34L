@@ -1,4 +1,3 @@
-
 function editCore(core) {
     core = core.replace(/;if\((\w)<1\.0\){/i, ';if($1<0){');
     core = core.replace(/([\w]+\s*=\s*[\w]+\s*\+\s*16\s*\|\s*0;\s*([\w=]+)\s*=\s*\+[\w\[\s*><\]]+;)/, '$1 $2*=0.75;');
@@ -13,7 +12,6 @@ function editCore(core) {
     console.log('core_edited');
     return core;
 }
-
 
 window.draw = () => {
     if (!window.minX || !window.minY || !window.maxY || !window.maxY) return;
@@ -31,13 +29,6 @@ window.draw = () => {
     ctx.closePath();
     ctx.stroke();
     ctx.restore();
-	document.getElementById("mainui-play").style.color = "#343434";
-	document.getElementById("mainui-party").style.backgroundColor = "#153dee";
-	document.getElementById("mainui-features").style.backgroundColor = "#153dee";
-	document.getElementById("mainui-offers").style.backgroundColor = "#153dee";
-	document.getElementById("mainui-play").style.backgroundColor = "#153dee";
-	document.getElementById("play").style.backgroundColor = "#28a745";
-	
 }
 
 let observer = new MutationObserver((mutations) => {
@@ -148,7 +139,7 @@ class Client {
             token += '-';
         }
         token = token.substring(0, token.length - 1);
-        localStorage.setItem('GodBots', token);
+        localStorage.setItem('agarUnlimited3UUID', token);
         return token;
     }
 
@@ -157,79 +148,29 @@ class Client {
         script.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@9';
         document.getElementsByTagName("head")[0].appendChild(script);
         $('head').append(`<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">`);
-        if (!localStorage.getItem('GodBots')) localStorage.setItem('GodBots', this.createUUID());
-        this.uuid = localStorage.getItem('GodBots');
+        if (!localStorage.getItem('agarUnlimited3UUID')) localStorage.setItem('agarUnlimited3UUID', this.createUUID());
+        this.uuid = localStorage.getItem('agarUnlimited3UUID');
     }
 
     loadGUI() {
-		
         $('.agario-promo-container').replaceWith(`
-		<input onchange="localStorage.setItem('botNick', this.value);" id="botNick" maxlength="15" class="access-control-context" placeholder="Bot Name" value="Bot Name"></input>
-        <input onchange="localStorage.setItem('botAmount', this.value);" id="BotAmount" maxlength="3" class="access-control-context" placeholder="Bot Amount" value="100"></input>
-        <center><button id="toggleButton" onclick="window.client.startBots(localStorage.getItem('botAmount'));" class="btn btn-success">Start Bots</button></center>
-		<center><button id="botsalive" class="btn btn-success">Bots alive: 0/100</button></center>
+        <center><button id="toggleButton" class="btn btn-danger">Your plan has expired</button></center>
         `);
-		$('.modes-container').replaceWith(`
-        <div data-v-4b5576c8="" class="modes-container"><h4 data-v-4b5576c8="" class="title">Select Game Mode</h4> <div data-v-4b5576c8="" class="gamemodes"><div data-v-4b5576c8="" id="mode_ffa" class="item active ffa" style="margin-left: 0%; margin-right: 0%;"><span data-v-4b5576c8="" class="label">FFA</span></div><div data-v-4b5576c8="" id="mode_battleroyale" class="item battleroyale" style="margin-left: 0%; margin-right: 0%;"><span data-v-4b5576c8="" class="label">Battle Royale</span></div><div data-v-4b5576c8="" id="mode_teams" class="item teams" style="margin-left: 0%; margin-right: 0%;"><span data-v-4b5576c8="" class="label">Teams</span></div><div data-v-4b5576c8="" id="mode_experimental" class="item experimental" style="margin-left: 0%; margin-right: 0%;"><span data-v-4b5576c8="" class="label">Experimental</span></div></div></div>
-        `);
-		$('.tosBox right').replaceWith(`
-		<div data-v-4b5576c8="" class="modes-container"><h4 data-v-4b5576c8="" class="title">Select Game Mode</h4> <div data-v-4b5576c8="" class="gamemodes"><div data-v-4b5576c8="" id="mode_ffa" class="item active ffa" style="margin-left: 0%; margin-right: 0%; background-color: rgb(26, 209, 232);"><span data-v-4b5576c8="" class="label">FFA</span></div><div data-v-4b5576c8="" id="mode_battleroyale" class="item battleroyale" style="margin-left: 0%; margin-right: 0%; background-color: rgb(26, 209, 232);"><span data-v-4b5576c8="" class="label">Battle Royale</span></div><div data-v-4b5576c8="" id="mode_teams" class="item teams" style="margin-left: 0%; margin-right: 0%; background-color: rgb(26, 209, 232);"><span data-v-4b5576c8="" class="label">Teams</span></div><div data-v-4b5576c8="" id="mode_experimental" class="item experimental" style="margin-left: 0%; margin-right: 0%; background-color: rgb(26, 209, 232);"><span data-v-4b5576c8="" class="label">Experimental</span></div></div></div>);
-		`);
-		$('.yt-uix-button yt-uix-button-size-default yt-uix-button-subscribe-branded yt-uix-button-has-icon no-icon-markup yt-uix-subscription-button yt-can-buffer external fixed-width').replaceWith(`
-		<button class="yt-uix-button yt-uix-button-size-default yt-uix-button-subscribe-branded yt-uix-button-has-icon no-icon-markup yt-uix-subscription-button yt-can-buffer external fixed-width" type="button" onclick=";return false;" aria-busy="false" aria-live="polite" data-channel-external-id="UCC6hurPo_LxL7C0YFYgYnIw" data-href="https://www.youtube.com/channel/UCIZJ0fkxjba13IFnkCmd9EA?sub_confirmation=1" data-insecure="True" data-params="" data-style-type="branded" data-target="_top" data-parent-url="https://agar.io/"><span class="yt-uix-button-content"><span class="subscribe-label" aria-label="YouTube">YouTube</span><span class="subscribed-label" aria-label="YouTube">YouTube</span><span class="unsubscribe-label" aria-label="YouTube">YouTube</span></span></button>
-		`);
-		document.getElementById("botNick").style.backgroundColor = "#1ad1e8";
-		document.getElementById("BotAmount").style.backgroundColor = "#1ad1e8";
-		document.getElementById("mode_ffa").style.backgroundColor = "#1ad1e8";
-		document.getElementById("mode_teams").style.backgroundColor = "#1ad1e8";
-		document.getElementById("mode_experimental").style.backgroundColor = "#1ad1e8";
-		document.getElementById("mode_battleroyale").style.backgroundColor = "#1ad1e8";
-		document.getElementById("mainui-modes").style.backgroundColor = "#153dee";
-		document.getElementById("mainui-user").style.backgroundColor = "#153dee";
-		var currentNode = document.querySelector('#fontdetectHelper');
-
-		// Create a new element
-		var newNode = document.createElement('div');
-
-		// Add ID and content
-		newNode.id = 'salutations';
-		newNode.innerHTML =
-			'<h1>Hi, universe!</h1>' +
-			'<p>The sun is always shining!</p>';
-
-		// Replace the current node with the new node
-		currentNode.parentNode.replaceChild(newNode, currentNode);
-        if (!localStorage.getItem('botAmount')) localStorage.setItem('botAmount', 100);
-        if (!localStorage.getItem('botNick')) localStorage.setItem('botNick', 'KrunkerDarezYT');
-        console.log('[GodBots] Ready!');
+        if (!localStorage.getItem('botAmount')) localStorage.setItem('botAmount', 10);
+        if (!localStorage.getItem('botNick')) localStorage.setItem('botNick', 'Sanik');
+        console.log('[AgarUnlimited] Ready!');
     }
-	
-
 
     startBots(amount) {
         if (this.authorized) return this.startBots2();
-        amount > 100 ? amount = 100 : amount = amount;
+        amount > 200 ? amount = 200 : amount = amount;
         for (let i = 0; i < amount; i++) {
             this.bots.push(new Bot(this.protocolKey, window.client.botID, `wss://${window.MC.getHost()}:443?party_id=${window.MC.getPartyToken()}`, false));
             this.botID++;
         }
-        console.log(`[GodBots] Starting ${localStorage.getItem('botAmount')} bots!`);
+        console.log(`[AgarUnlimited] Starting ${localStorage.getItem('botAmount')} bots!`);
         $('#toggleButton').replaceWith(`<button id='toggleButton' onclick='window.client.stopBots();' class='btn btn-danger'>Stop Bots</button>`);
         this.startedBots = true;
-		$('#botsalive').replaceWith(`<button id='botsaliveone' class='btn btn-success'>Bots alive: 13/150</button>`);
-		setTimeout(function(){ $('#botsaliveone').replaceWith(`<button id='botsaliveone' class='btn btn-success'>Bots alive: 27/100</button>`); }, 1000);
-		setTimeout(function(){ $('#botsaliveone').replaceWith(`<button id='botsaliveone' class='btn btn-success'>Bots alive: 35/100</button>`); }, 2500);
-		setTimeout(function(){ $('#botsaliveone').replaceWith(`<button id='botsaliveone' class='btn btn-success'>Bots alive: 42/100</button>`); }, 3500);
-		setTimeout(function(){ $('#botsaliveone').replaceWith(`<button id='botsaliveone' class='btn btn-success'>Bots alive: 56/100</button>`); }, 4500);
-		setTimeout(function(){ $('#botsaliveone').replaceWith(`<button id='botsaliveone' class='btn btn-success'>Bots alive: 71/100</button>`); }, 5500);
-		setTimeout(function(){ $('#botsaliveone').replaceWith(`<button id='botsaliveone' class='btn btn-success'>Bots alive: 82/100</button>`); }, 6500);
-		setTimeout(function(){ $('#botsaliveone').replaceWith(`<button id='botsaliveone' class='btn btn-success'>Bots alive: 90/100</button>`); }, 7500);
-		setTimeout(function(){ $('#botsaliveone').replaceWith(`<button id='botsaliveone' class='btn btn-success'>Bots alive: 87/100</button>`); }, 8500);
-		setTimeout(function(){ $('#botsaliveone').replaceWith(`<button id='botsaliveone' class='btn btn-success'>Bots alive: 98/100</button>`); }, 9500);
-		setTimeout(function(){ $('#botsaliveone').replaceWith(`<button id='botsaliveone' class='btn btn-success'>Bots alive: 99/100</button>`); }, 10500);
-		setTimeout(function(){ $('#botsaliveone').replaceWith(`<button id='botsaliveone' class='btn btn-success'>Bots alive: 100/100</button>`); }, 11500);
-		setTimeout(function(){ $('#botsaliveone').replaceWith(`<button id='botsaliveone' class='btn btn-success'>Bots alive: 99/100</button>`); }, 12500);
-		setTimeout(function(){ $('#botsaliveone').replaceWith(`<button id='botsaliveone' class='btn btn-success'>Bots alive: 100/100</button>`); }, 13500);
     }
 
     stopBots() {
@@ -239,10 +180,9 @@ class Client {
             bot.ws.close();
         });
         this.bots.length = 0;
-        console.log('[GodBots] Stopped bots!');
+        console.log('[AgarUnlimited] Stopped bots!');
         $('#toggleButton').replaceWith(`<button id='toggleButton' onclick="window.client.startBots(localStorage.getItem('botAmount'));" class='btn btn-success'>Start Bots</button>`);
         this.startedBots = false;
-		$('#botsaliveone').replaceWith(`<button id='botsaliveone' class='btn btn-danger'>Bots alive: 0/100</button>`);
     }
 
     splitBots() {
@@ -616,3 +556,4 @@ class Bot {
         return e;
     }
 }
+
